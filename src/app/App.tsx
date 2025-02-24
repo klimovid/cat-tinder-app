@@ -1,16 +1,15 @@
 import React from 'react';
-import {
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
+import LoaderPage from '../lib/LoaderPage';
+import NavigationContainer from '../navigation/NavigationContainer';
 
 function App(): React.JSX.Element {
+
+  //if (loading) {
+  //  return <LoaderPage />;
+  //}
+
   return (
-      <View />
+    <NavigationContainer />
   );
 }
 
