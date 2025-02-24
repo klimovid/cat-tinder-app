@@ -2,16 +2,16 @@ import { observer } from 'mobx-react-lite';
 import React from 'react';
 
 import {
-  Container,
+  Container, Image,
 } from './LoaderPage.elements';
 
 const LoaderPage: React.FC<{
 }> = () => {
 
   return (
-        <Container>
-
-        </Container>
+    <Container>
+      <Image source={require('../../assets/cat.png')}/>
+    </Container>
   );
 };
 

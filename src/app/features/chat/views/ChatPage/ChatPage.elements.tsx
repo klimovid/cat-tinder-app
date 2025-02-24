@@ -1,4 +1,5 @@
 import styled from 'styled-components/native';
+import theme from '../../../../../config/theme';
 
 export const Container = styled.View`
   display: flex;
@@ -8,6 +9,6 @@ export const Container = styled.View`
 `;
 
 export const Label = styled.Text`
-  font-size: 12px;
-  color: black;
+  font-size: 24px;
+  color: ${theme.colors.black};
 `;
