@@ -27,7 +27,6 @@ const AppNavigationContainer = () => {
           tabBarStyle: styles.tabBarStyle,
           tabBarActiveTintColor: theme.colors.active,
           tabBarInactiveTintColor: theme.colors.black,
-          tabBarIconStyle: styles.tabBarIconStyle,
           tabBarIcon: ({ color, size }) => {
             let source;
             if (route.name === NavigationRoutes.Cats) {
@@ -37,7 +36,7 @@ const AppNavigationContainer = () => {
             } else if (route.name === 'Profile') {
               source = profileIcon;
             }
-            return <Image source={source} style={{ width: size, height: size, tintColor: color }} />;
+            return <Image source={source} style={{ width: styles.tabBarIconStyle.width, height: styles.tabBarIconStyle.height, tintColor: color }} />;
           },
           headerShown: false,
           tabBarShowLabel: false,
@@ -66,11 +65,13 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 5},
     shadowOpacity: 0.5,
     shadowRadius: 5,
-    elevation: 5
+    elevation: 5,
+    display: 'flex',
+    flexDirection: 'column'
   },
   tabBarIconStyle: {
     width: 20,
-    height: 20
+    height: 20,
   },
 });
 
