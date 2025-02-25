@@ -1,16 +1,26 @@
 import React from 'react';
+import {
+  ScrollView,
+  StatusBar,
+  StyleSheet,
+  Text,
+  useColorScheme,
+  View,
+} from 'react-native';
 import LoaderPage from '../lib/LoaderPage';
+import appStore from './App.store';
 import NavigationContainer from '../navigation/NavigationContainer';
+import { observer } from 'mobx-react-lite';
 
 function App(): React.JSX.Element {
 
-  //if (loading) {
-  //  return <LoaderPage />;
-  //}
+  if (appStore.isLoading) {
+    return <LoaderPage />;
+  }
 
   return (
-    <NavigationContainer />
+      <NavigationContainer />
   );
 }
 
-export default App;
+export default observer(App);

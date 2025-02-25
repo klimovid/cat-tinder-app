@@ -23,7 +23,7 @@ const CatCard: React.FC<{
       />
 
       <InfoWrapper>
-        <Count>{props.catData.lifeSpan}</Count>
+        <Count>{props.catData.intelligenceLevel}</Count>
         <Title>{props.catData.name}</Title>
         <SubTitle>{props.catData.origin}</SubTitle>
       </InfoWrapper>

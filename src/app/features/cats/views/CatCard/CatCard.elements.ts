@@ -35,6 +35,7 @@ export const InfoWrapper = styled.View`
   display: flex;
   flex-direction: column;
   border-radius: 10px 10px 0px 0px;
+  background-color: ${theme.colors.white};
 `;
 
 export const Title = styled.Text`

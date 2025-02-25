@@ -7,7 +7,6 @@ import {
 
 const LoaderPage: React.FC<{
 }> = () => {
-
   return (
     <Container>
       <Image source={require('../../assets/cat.png')}/>

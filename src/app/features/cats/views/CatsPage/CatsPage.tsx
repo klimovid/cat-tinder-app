@@ -8,7 +8,7 @@ import {
   ButtonsWrapper,
   Button,
 } from './CatsPage.elements';
-//import appStore from '../../../../App.store';
+import appStore from '../../../../App.store';
 import debounce from 'lodash/debounce'
 import CatCard from '../CatCard';
 import Swiper from 'react-native-deck-swiper';
@@ -48,8 +48,10 @@ const CatsPage: React.FC<{
 
   const handleOnSwipeRight = useCallback(
     debounce(
-      (cardId) => {
-        //appStore.cats.vote(cardId)
+      (index, catModel?: CatModel) => {
+        if (catModel) {
+          appStore.cats.vote(catModel.id)
+        }
       },
       1000,
       {
@@ -73,37 +75,7 @@ const CatsPage: React.FC<{
         <SwiperWrapper>
           <Swiper
             ref={swiperRef}
-            cards={[{
-              id: "abys",
-              weight:{
-                  imperial:"7  -  10",
-                  metric:"3 - 5"
-              },
-              name:"Abyssinian",
-              temperament:"Active, Energetic, Independent, Intelligent, Gentle",
-              origin:"Egypt",
-              country_codes:"EG",
-              country_code:"EG",
-              life_span:"14 - 15",
-              wikipedia_url:"https://en.wikipedia.org/wiki/Abyssinian_(cat)",
-              imageUrl: 'https://media.istockphoto.com/id/1443562748/ru/%D1%84%D0%BE%D1%82%D0%BE/%D0%BC%D0%B8%D0%BB%D0%B0%D1%8F-%D1%80%D1%8B%D0%B6%D0%B0%D1%8F-%D0%BA%D0%BE%D1%88%D0%BA%D0%B0.jpg?s=612x612&w=0&k=20&c=k8RwP4usK_LCpQ1bPn3fNDLk3vtfptH7CEcEMZw_K1A='
-            },
-            {
-              id: "afdsfdadsa",
-              weight:{
-                  imperial:"7  -  10",
-                  metric:"3 - 5"
-              },
-              name:"JKDLJFLKJFKLSAJDLK",
-              temperament:"Active, Energetic, Independent, Intelligent, Gentle",
-              origin:"DJKFJKFJKDFJKJFDK",
-              country_codes:"EG",
-              country_code:"EG",
-              life_span:"3 - 90",
-              wikipedia_url:"https://en.wikipedia.org/wiki/Abyssinian_(cat)",
-              imageUrl: 'https://media.istockphoto.com/id/1443562748/ru/%D1%84%D0%BE%D1%82%D0%BE/%D0%BC%D0%B8%D0%BB%D0%B0%D1%8F-%D1%80%D1%8B%D0%B6%D0%B0%D1%8F-%D0%BA%D0%BE%D1%88%D0%BA%D0%B0.jpg?s=612x612&w=0&k=20&c=k8RwP4usK_LCpQ1bPn3fNDLk3vtfptH7CEcEMZw_K1A='
-            }
-        ]}
+            cards={appStore.cats.catsList}
             renderCard={handleRenderCard}
             animateCardOpacity
             showSecondCard
@@ -115,7 +87,6 @@ const CatsPage: React.FC<{
             verticalSwipe={false} 
             disableBottomSwipe
             disableTopSwipe
-            useNativeDriver
           />
         </SwiperWrapper>
 
